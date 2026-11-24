@@ -11,7 +11,7 @@ export default function InstructorForm() {
     const { isLoading, error, sendRequest } = useHttp();
 
     // Class Information
-    const occupiedSeats = 0;
+    const userId = localStorage.getItem("userId");
     const [title, setTitle] = useState("");
     const [department, setDepartment] = useState("");
     const [number, setNumber] = useState("");
@@ -29,7 +29,6 @@ export default function InstructorForm() {
     // Fetch instructor information
     useEffect(() => {
         async function fetchInstructor() {
-            const userId = localStorage.getItem("userId");
             const token = localStorage.getItem("token");
 
             await sendRequest( `${DATABASE_URL}/users/${userId}.json?auth=${token}`, {},
@@ -56,6 +55,7 @@ export default function InstructorForm() {
 
         // Save course data into object
         const courseData = {
+            instructorID: userId,
             title,
             department,
             number,
@@ -64,11 +64,14 @@ export default function InstructorForm() {
             endTime,
             instructor,
             location,
-            occupiedSeats,
+            occupiedSeats: 0,
             seats: Number(seats),
             credits: Number(credits),
             description,
+            students: [],
         };
+
+        console.log("Course being submitted:", courseData);
 
         // useHttp hook callball and navigate to courses
         await sendRequest(`${DATABASE_URL}/courses.json?auth=${token}`,
@@ -80,7 +83,7 @@ export default function InstructorForm() {
                 body: courseData,
             },
             () => {
-                navigate("/Courses");
+                navigate("/instructor");
             }
         );
     }
@@ -227,7 +230,7 @@ export default function InstructorForm() {
                 />
 
                 <div className={styles.buttonContainer}>
-                    <button type="button" className={styles.cancelButton} onClick={() => navigate("/courses")}>
+                    <button type="button" className={styles.cancelButton} onClick={() => navigate("/instructor")}>
                         Cancel
                     </button>
 

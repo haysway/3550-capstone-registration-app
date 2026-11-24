@@ -7,6 +7,7 @@ import {action as logoutAction} from "./pages/Logout.jsx";
 import './App.css';
 import CourseCatalog from './components/CourseCatalog.jsx';
 import CourseForm from "./pages/CourseForm.jsx";
+import InstructorDashboard from './components/InstructorDashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,18 +17,18 @@ const router = createBrowserRouter([
     loader: tokenLoader,
     children: [
       { index: true, element: <HomePage/> },
-      { path: "courses", 
-        element: <CourseCatalog/>,
+      { path: "courses", element: <CourseCatalog/>},
+      { path: "instructor", 
+        element: <InstructorDashboard/>,
+        loader: checkInstructorLoader,
         children: [
           {
             path: "new",
             element: <CourseForm />,
-            loader: checkInstructorLoader,
           },
           {
-            path: "edit",
+            path: "edit/:courseId",
             element: <CourseForm />,
-            loader: checkInstructorLoader,
           },
         ],
       },

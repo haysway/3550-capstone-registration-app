@@ -19,6 +19,9 @@ export default function MainNavigation() {
                             {role == "Student" &&
                                 <NavLink className={`${styles.navButton}`} to="/">My Courses</NavLink>
                             }
+                            {role == "Instructor" &&
+                                <NavLink className={`${styles.navButton}`} to="/instructor">My Courses</NavLink>
+                            }
                         </>
                     )}
                 </div>
