@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import {tokenLoader, checkInstructorLoader} from "./utils/auth-utils.js"
+import {tokenLoader, checkInstructorLoader, checkStudentLoader} from "./utils/auth-utils.js"
 import RootLayout from './pages/RootLayout';
 import HomePage from './pages/HomePage.jsx';
 import AuthenticationPage, {action as authenticationAction} from './pages/AuthenticationPage.jsx';
@@ -8,10 +8,27 @@ import './App.css';
 import CourseCatalog from './components/CourseCatalog.jsx';
 import CourseForm from "./pages/CourseForm.jsx";
 import InstructorDashboard from './components/InstructorDashboard.jsx';
-import { useState } from 'react'
-import StudentDashboard from './components/StudentDashboard'
-import SiteHeader from './components/SiteHeader'
-import { sampleCourses } from './data/sampleCourses'
+import { useState } from 'react';
+import StudentDashboard from './components/StudentDashboard';
+import SiteHeader from './components/SiteHeader.jsx';
+import { sampleCourses } from './data/sampleCourses';
+
+function StudentDashboardPage() {
+  const [courses, setCourses] = useState(sampleCourses);
+
+  function dropCourse(id) {
+    setCourses((current) =>
+      current.filter((course) => course.id !== id)
+    );
+  }
+
+   return (
+    <>
+      <SiteHeader studentName="Alex Student"/>
+      <StudentDashboard courses={courses} onDropCourse={dropCourse}/>
+    </>
+  );
+}
 
 const router = createBrowserRouter([
   {
@@ -22,7 +39,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage/> },
       { path: "courses", element: <CourseCatalog/>},
-      { path: "student", element: <StudentDashboard/>},
+      { path: "student", loader: checkStudentLoader, element: <StudentDashboardPage/>},
       { path: "instructor", 
         element: <InstructorDashboard/>,
         loader: checkInstructorLoader,

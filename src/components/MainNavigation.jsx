@@ -1,6 +1,5 @@
 import { NavLink, Form, useRouteLoaderData } from "react-router-dom";
 import styles from "./MainNavigation.module.css"
-import viteLogo from "../assets/vite.svg";
 export default function MainNavigation() {
     const token = useRouteLoaderData("root");
     const role = localStorage.getItem("role");
@@ -9,15 +8,13 @@ export default function MainNavigation() {
         <header>
             <nav className={styles.navMenu}>
 
-                <img className={styles.navLogo} src={viteLogo} alt="Logo" />
-
                 <div className={styles.defaultNav}>
                     <NavLink className={`${styles.navButton}`} to="/">Home</NavLink>
                     <NavLink className={`${styles.navButton}`} to="/Courses">Course Catalog</NavLink>
                     {token && (
                         <>
                             {role == "Student" &&
-                                <NavLink className={`${styles.navButton}`} to="/">My Courses</NavLink>
+                                <NavLink className={`${styles.navButton}`} to="/student">My Courses</NavLink>
                             }
                             {role == "Instructor" &&
                                 <NavLink className={`${styles.navButton}`} to="/instructor">My Courses</NavLink>

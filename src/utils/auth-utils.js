@@ -61,3 +61,20 @@ export function checkInstructorLoader() {
 
     return null;
 }
+
+// Validates Student Authorization
+export function checkStudentLoader() {
+    const authResult = checkAuthLoader();
+
+    if (authResult) {
+        return authResult;
+    }
+
+    const role = localStorage.getItem("role");
+
+    if (role !== "Student") {
+        return redirect("/");
+    }
+
+    return null;
+}
