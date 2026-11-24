@@ -1,0 +1,64 @@
+.navMenu {
+    background-color: rgba(49, 48, 48, 0.89);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    padding: 0 25px;
+    gap: 15px;
+}
+
+.navMenu h3{
+    color: white;
+}
+
+.navLogo {
+    height: 35px;
+    width: 35px;
+    object-fit: contain;
+}
+
+.navButton {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navButton.signup {
+    background-color: black;
+    color: white;
+}
+
+.navButton.signup:hover {
+    background-color: #a6a6a6;
+    color: white;
+}
+
+.navButton.login:hover {
+    background-color: #333;
+    color: white;
+}
+
+.defaultNav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-right: auto;
+}
+
+.studentNav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-right: auto;
+}

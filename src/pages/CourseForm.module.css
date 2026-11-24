@@ -1,0 +1,142 @@
+
+/* Container */
+.formContainer {
+    width: 85%;
+    height: fit-content;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Header */
+.formHeader {
+    padding: 20px;
+    text-align: left;
+}
+
+/* Form body */
+.formControl {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 25px;
+    border-top: 2px solid black;
+    background-color: rgba(173, 173, 173, 0.349);
+    color: #222;
+}
+
+/* Two-column layout */
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* Title Spans entire row */
+.titleInput {
+    grid-column: 1 / -1;
+}
+
+/* Individual fields */
+.formField {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formField label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+/* Input areas */
+.formField input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 2px solid black;
+    font-size: 14px;
+    background-color: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formField input:focus {
+    outline: none;
+    border-color: #8f8f8f;
+    box-shadow: 0 0 0 3px rgba(31, 12, 155, 0.12);
+}
+
+/* Class days */
+.daysContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.daysContainer label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.daysContainer input[type="checkbox"]{
+    transform: scale(1.5);
+    accent-color: rgba(31, 12, 155, 0.12);
+    cursor: pointer;
+}
+
+/* Buttons */
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.buttonContainer button {
+    width: 140px;
+    height: 40px;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Cancel button */
+.cancelButton {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+
+/* Publish button */
+.publishButton {
+    background-color: #000000;
+    color: white;
+    border: 2px solid black;
+}
+
+.publishButton:hover {
+    background-color: #170975;
+}
+
+.publishButton:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+/* Errors */
+.error {
+    margin: 15px 25px 0;
+    padding: 10px;
+    background-color: #ffe5e5;
+    color: #b00020;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
