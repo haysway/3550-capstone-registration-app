@@ -8,6 +8,10 @@ import './App.css';
 import CourseCatalog from './components/CourseCatalog.jsx';
 import CourseForm from "./pages/CourseForm.jsx";
 import InstructorDashboard from './components/InstructorDashboard.jsx';
+import { useState } from 'react'
+import StudentDashboard from './components/StudentDashboard'
+import SiteHeader from './components/SiteHeader'
+import { sampleCourses } from './data/sampleCourses'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +22,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage/> },
       { path: "courses", element: <CourseCatalog/>},
+      { path: "student", element: <StudentDashboard/>},
       { path: "instructor", 
         element: <InstructorDashboard/>,
         loader: checkInstructorLoader,
