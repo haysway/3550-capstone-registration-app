@@ -1,0 +1,119 @@
+/* Landing page layout */
+.landingPage {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
+    box-sizing: border-box;
+    background-color: var(--color-background);
+}
+
+/* Main content */
+.hero {
+    max-width: 700px;
+}
+
+/* Small heading above title */
+.eyebrow {
+    display: block;
+    color: var(--color-secondary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Main heading */
+.hero h1 {
+    color: var(--color-dark);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Description */
+.hero p {
+    color: var(--color-text-muted);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+/* Button layout */
+.heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Shared button styling */
+.primaryButton,
+.secondaryButton {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Primary button */
+.primaryButton {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    border: 1px solid var(--color-primary);
+}
+
+.primaryButton:hover {
+    background-color: #C7795C;
+    border-color: #C7795C;
+}
+
+/* Secondary button */
+.secondaryButton {
+    background-color: var(--color-surface);
+    color: var(--color-dark);
+    border: 1px solid var(--color-border);
+}
+
+.secondaryButton:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-background);
+}
+
+/* Keyboard accessibility */
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .landingPage {
+        min-height: 70vh;
+        padding: 45px 7%;
+    }
+
+    .hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .heroActions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .primaryButton,
+    .secondaryButton {
+        text-align: center;
+        min-width: 160px;
+    }
+}

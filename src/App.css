@@ -1,12 +1,16 @@
+
 .app-shell {
     min-height: 100svh;
     display: flex;
     flex-direction: column;
 }
 
+/* Header */
+
 .site-header {
-    background: white;
-    border-bottom: 1px solid #e5e5ef;
+    background: var(--color-dark);
+    color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
     padding: 24px max(24px, calc((100% - 1120px) / 2));
     display: flex;
     align-items: center;
@@ -21,13 +25,15 @@
 }
 
 .brand span {
-    color: #6450a6;
+    color: var(--color-primary);
 }
 
 .user-label {
-    color: #66677a;
+    color: var(--color-surface);
     font-size: 14px;
 }
+
+/* Dashboard */
 
 .dashboard {
     width: min(1120px, calc(100% - 48px));
@@ -36,7 +42,7 @@
 }
 
 .eyebrow {
-    color: #6954a8;
+    color: var(--color-secondary);
     font-size: 12px;
     font-weight: 750;
     letter-spacing: 2px;
@@ -57,7 +63,7 @@
 }
 
 .dashboard-heading p {
-    color: #6a6b7c;
+    color: var(--color-text-muted);
     line-height: 1.6;
 }
 
@@ -66,33 +72,42 @@
     font-weight: 750;
     white-space: nowrap;
     padding-left: 28px;
-    border-left: 1px solid #dcdce8;
+    border-left: 1px solid var(--color-border);
 }
 
 .credit-total span {
     display: block;
     font-size: 13px;
     font-weight: 400;
-    color: #6a6b7c;
+    color: var(--color-text-muted);
     margin-top: 4px;
 }
 
+/* Messages */
+
 .preview-note {
     font-size: 13px;
-    color: #626279;
-    background: #efedf8;
+    color: var(--color-dark);
+    background: var(--color-surface);
     padding: 13px 16px;
     border-radius: 8px;
     margin: 24px 0 0;
     line-height: 1.6;
+    border-left: 3px solid var(--color-secondary);
 }
 
 .status-message {
-    color: #236243;
+    color: #386B54;
     font-size: 14px;
     margin: 16px 0;
     min-height: 20px;
 }
+
+.error-message {
+    color: #A03F50;
+}
+
+/* Headings */
 
 h2 {
     font-size: 19px;
@@ -101,13 +116,15 @@ h2 {
 }
 
 .count {
-    background: #eae6f6;
-    color: #5d478f;
+    background: var(--color-surface);
+    color: var(--color-dark);
     border-radius: 20px;
     font-size: 13px;
     padding: 4px 9px;
     margin-left: 8px;
 }
+
+/* Course cards */
 
 .course-grid {
     display: grid;
@@ -116,8 +133,8 @@ h2 {
 }
 
 .course-card {
-    background: white;
-    border: 1px solid #e1e1eb;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     padding: 25px;
     display: flex;
@@ -129,7 +146,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    color: #626277;
+    color: var(--color-text-muted);
     font-size: 12px;
     margin-bottom: 22px;
 }
@@ -137,8 +154,8 @@ h2 {
 .category {
     padding: 5px 10px;
     border-radius: 5px;
-    background: #efedf8;
-    color: #625099;
+    background: var(--color-surface);
+    color: var(--color-dark);
     font-weight: 700;
 }
 
@@ -150,18 +167,18 @@ h2 {
 
 .course-meta {
     font-size: 12px;
-    color: #626277;
+    color: var(--color-text-muted);
 }
 
 .description {
     font-size: 14px;
-    color: #6a6b7c;
+    color: var(--color-text-muted);
     line-height: 1.7;
     margin: 5px 0 28px;
 }
 
 .card-bottom {
-    border-top: 1px solid #eeeef4;
+    border-top: 1px solid var(--color-border);
     padding-top: 18px;
     margin-top: auto;
     display: flex;
@@ -171,28 +188,35 @@ h2 {
     font-size: 14px;
 }
 
+/* Buttons */
+
 .button {
-    border: 1px solid #d8d8e5;
+    border: 1px solid var(--color-border);
     border-radius: 6px;
-    background: white;
-    color: #34344d;
+    background: var(--color-background);
+    color: var(--color-dark);
     padding: 10px 14px;
     font-size: 13px;
     font-weight: 650;
+    transition: background 150ms ease, border-color 150ms ease;
 }
 
 .button:hover {
-    background: #f1eff8;
+    background: var(--color-surface);
+    border-color: var(--color-secondary);
 }
 
 .drop-button {
-    color: #984b54;
-    border-color: #ead8dc;
+    color: #984B54;
+    border-color: #D9BFC0;
 }
 
 .drop-button:hover {
-    background: #fff2f3;
+    background: #F1DFDC;
+    border-color: #984B54;
 }
+
+/* Schedule table */
 
 .schedule-section {
     margin-top: 40px;
@@ -200,9 +224,9 @@ h2 {
 
 .table-scroll {
     overflow-x: auto;
-    border: 1px solid #e1e1eb;
+    border: 1px solid var(--color-border);
     border-radius: 10px;
-    background: white;
+    background: var(--color-background);
 }
 
 table {
@@ -214,8 +238,8 @@ table {
 }
 
 th {
-    background: #f0f1f7;
-    color: #68697c;
+    background: var(--color-surface);
+    color: var(--color-dark);
     font-size: 12px;
     font-weight: 600;
     padding: 16px 20px;
@@ -223,7 +247,7 @@ th {
 
 td {
     padding: 21px 20px;
-    border-top: 1px solid #eaeaf1;
+    border-top: 1px solid var(--color-border);
 }
 
 td strong {
@@ -232,50 +256,57 @@ td strong {
 
 .table-code {
     display: block;
-    color: #77788b;
+    color: var(--color-text-muted);
     font-size: 12px;
     margin-top: 6px;
 }
 
 .enrolled {
-    background: #eaf6ef;
-    color: #286644;
+    background: #DCEBE2;
+    color: #386B54;
     border-radius: 20px;
     padding: 5px 10px;
     font-size: 12px;
 }
 
+/* Empty state */
+
 .empty-state {
     padding: 48px 24px;
     text-align: center;
-    border: 1px dashed #ceccdf;
+    border: 1px dashed var(--color-border);
     border-radius: 12px;
-    background: white;
+    background: var(--color-background);
 }
 
 .empty-state p {
-    color: #6a6b7c;
+    color: var(--color-text-muted);
     margin-bottom: 0;
 }
 
+/* Footer */
+
 .site-footer {
-    border-top: 1px solid #e1e1eb;
+    border-top: 1px solid var(--color-border);
     padding: 24px;
     text-align: center;
-    color: #77788b;
+    color: var(--color-text-muted);
     font-size: 12px;
 }
+
+/* Dialog */
 
 dialog {
     width: min(440px, calc(100% - 32px));
     padding: 28px;
-    border: 1px solid #dcdce8;
+    border: 1px solid var(--color-border);
     border-radius: 12px;
-    color: #24243b;
+    background: var(--color-background);
+    color: var(--color-dark);
 }
 
 dialog::backdrop {
-    background: #18152d80;
+    background: #293B4980;
 }
 
 dialog p {
@@ -291,18 +322,17 @@ dialog p {
 }
 
 .danger-button {
-    background: #a03f50;
+    background: #A03F50;
     color: white;
-    border-color: #a03f50;
+    border-color: #A03F50;
 }
 
 .danger-button:hover {
     background: #843344;
+    border-color: #843344;
 }
 
-.error-message {
-    color: #a03f50;
-}
+/* Responsive layout */
 
 @media (max-width: 700px) {
     .site-header {

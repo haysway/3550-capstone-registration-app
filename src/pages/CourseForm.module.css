@@ -4,17 +4,19 @@
     width: 85%;
     height: fit-content;
     margin: 20px auto;
-    background-color: #ffffff;
+    background-color: var(--color-background);
     border-radius: 12px;
     overflow: hidden;
-    border: 2px solid black;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(41, 59, 73, 0.10);
 }
 
 /* Header */
 .formHeader {
     padding: 20px;
     text-align: left;
+    background-color: var(--color-background);
+    color: var(--color-dark);
 }
 
 /* Form body */
@@ -23,9 +25,9 @@
     flex-direction: column;
     gap: 18px;
     padding: 25px;
-    border-top: 2px solid black;
-    background-color: rgba(173, 173, 173, 0.349);
-    color: #222;
+    border-top: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-dark);
 }
 
 /* Two-column layout */
@@ -35,7 +37,7 @@
     gap: 18px;
 }
 
-/* Title Spans entire row */
+/* Title spans entire row */
 .titleInput {
     grid-column: 1 / -1;
 }
@@ -50,28 +52,39 @@
 .formField label {
     font-weight: 500;
     font-size: 14px;
+    color: var(--color-dark);
 }
 
-
 /* Input areas */
-.formField input, textarea {
+.formField input,
+.formField textarea,
+.formField > textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 11px 12px;
-    border: 2px solid black;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font: inherit;
     font-size: 14px;
-    background-color: #fafafa;
+    color: var(--color-dark);
+    background-color: var(--color-background);
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.formField input:focus {
+.formField input:focus,
+.formField textarea:focus {
     outline: none;
-    border-color: #8f8f8f;
-    box-shadow: 0 0 0 3px rgba(31, 12, 155, 0.12);
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(113, 140, 155, 0.2);
+}
+
+.formField input::placeholder,
+.formField textarea::placeholder {
+    color: var(--color-text-muted);
 }
 
 /* Class days */
-.daysContainer{
+.daysContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -82,11 +95,12 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    color: var(--color-dark);
 }
 
-.daysContainer input[type="checkbox"]{
-    transform: scale(1.5);
-    accent-color: rgba(31, 12, 155, 0.12);
+.daysContainer input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: var(--color-primary);
     cursor: pointer;
 }
 
@@ -103,30 +117,40 @@
     height: 40px;
     padding: 8px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
 /* Cancel button */
 .cancelButton {
-    background-color: white;
-    color: black;
-    border: 2px solid black;
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    border: 1px solid var(--color-border);
+}
+
+.cancelButton:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-secondary);
 }
 
 /* Publish button */
 .publishButton {
-    background-color: #000000;
-    color: white;
-    border: 2px solid black;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    border: 1px solid var(--color-primary);
 }
 
 .publishButton:hover {
-    background-color: #170975;
+    background-color: #C7795C;
+    border-color: #C7795C;
 }
 
 .publishButton:disabled {
-    background-color: #999;
+    background-color: var(--color-border);
+    border-color: var(--color-border);
+    color: var(--color-text-muted);
     cursor: not-allowed;
 }
 
@@ -134,9 +158,9 @@
 .error {
     margin: 15px 25px 0;
     padding: 10px;
-    background-color: #ffe5e5;
-    color: #b00020;
+    background-color: #F1DFDC;
+    color: #984B54;
+    border: 1px solid #D9BFC0;
     border-radius: 6px;
     font-size: 14px;
 }
-
