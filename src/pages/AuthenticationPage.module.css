@@ -1,13 +1,14 @@
+
 /* Container */
 .formContainer {
     width: 30%;
     height: fit-content;
     margin: 20px auto;
-    background-color: #ffffff;
+    background-color: var(--color-background);
     border-radius: 12px;
     overflow: hidden;
-    border: 2px solid black;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    border: 2px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(41, 59, 73, 0.10);
 }
 
 /* Form body */
@@ -16,9 +17,9 @@
     flex-direction: column;
     gap: 18px;
     padding: 35px 25px 25px;
-    border-top: 2px solid black;
-    background-color: rgba(173, 173, 173, 0.349);
-    color: #222;
+    border-top: 2px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
 }
 
 /* Header */
@@ -35,27 +36,36 @@
 }
 
 .formField label {
+    color: var(--color-text);
     font-weight: 500;
     font-size: 14px;
 }
-
 
 /* Input areas */
 .formField input {
     width: 100%;
     box-sizing: border-box;
     padding: 11px 12px;
-    border: 2px solid black;
+    border: 2px solid var(--color-border);
+    border-radius: 5px;
     font-size: 14px;
-    background-color: #fafafa;
+    color: var(--color-text);
+    background-color: var(--color-background);
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-input[type="radio"]{
-   width: 20px;
-   height: 20px;
-   accent-color: rgb(12, 25, 160);
-   cursor: pointer;
+.formField input:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(113, 140, 155, 0.2);
+}
+
+/* Radio buttons */
+.formField input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
 }
 
 /* Buttons */
@@ -67,25 +77,34 @@ input[type="radio"]{
 }
 
 .buttonContainer button {
-    background-color: black;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
     width: 140px;
     height: 40px;
     padding: 8px;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
-.buttonContainer button:disabled{
-    background-color: rgb(89, 87, 87);
-    color:rgb(197, 190, 190);
-    cursor:not-allowed;
+.buttonContainer button:hover:not(:disabled) {
+    background-color: #C7795C;
+    border-color: #C7795C;
+}
+
+.buttonContainer button:disabled {
+    background-color: var(--color-border);
+    border-color: var(--color-border);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
 }
 
 /* Switch Signup/Login Link */
-.switchLink{
-    color: #000000;
+.switchLink {
+    color: var(--color-dark);
     margin-right: auto;
     margin-top: auto;
     font-size: 14px;
@@ -94,15 +113,17 @@ input[type="radio"]{
 }
 
 .switchLink:hover {
-    color: #1a12a7;
+    color: var(--color-secondary);
     text-decoration: underline;
 }
 
+/* Error */
 .error {
     margin: 15px 25px 0;
     padding: 10px;
-    background-color: #ffe5e5;
-    color: #b00020;
+    background-color: #F1DFDC;
+    color: #984B54;
+    border: 1px solid #D9BFC0;
     border-radius: 6px;
     font-size: 14px;
 }
